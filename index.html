@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Максим - Гевари | Сайты, боты, код</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Fira Code', monospace;
+            background: #0A0A0A;
+            color: #D4D4D4;
+            line-height: 1.5;
+        }
+
+        :root {
+            --black: #0A0A0A;
+            --dark-gray: #1E1E1E;
+            --green: #4ECB71;
+            --green-dark: #3AA55D;
+            --white: #F5F5F5;
+            --shadow: 0 10px 25px -5px rgba(0,0,0,0.4);
+        }
+
+        ::selection {
+            background: var(--green);
+            color: var(--black);
+        }
+
+        .navbar {
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+            border-bottom: 2px solid var(--green);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover { color: var(--green); }
+
+        .hero {
+            background: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--green);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 16px auto;
+            color: #aaa;
+        }
+
+        .btn {
+            background: var(--green);
+            color: var(--black);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+            cursor: pointer;
+            font-family: monospace;
+        }
+        .btn:hover { background: var(--green-dark); transform: scale(1.02); }
+
+        section {
+            padding: 60px 20px;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            padding: 24px;
+            width: 280px;
+            border: 1px solid #2A2A2A;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .service-card:hover { border-color: var(--green); transform: translateY(-5px); }
+        .service-card h3 { color: var(--green); margin-bottom: 12px; font-size: 1.3rem; }
+        .price { font-size: 1.6rem; font-weight: 700; color: var(--white); margin: 12px 0; }
+
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .project-card {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #2A2A2A;
+            transition: 0.2s;
+            word-break: break-all;
+        }
+        .project-card:hover { border-color: var(--green); }
+        .project-card a {
+            color: var(--green);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .project-card p {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .reviews-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .review {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            padding: 20px;
+            border-left: 4px solid var(--green);
+        }
+        .review-name {
+            font-weight: 700;
+            color: var(--green);
+        }
+        .review-text {
+            margin-top: 8px;
+            color: #ddd;
+        }
+        .review-date {
+            margin-top: 8px;
+            font-size: 0.7rem;
+            color: #777;
+        }
+
+        .payment-block {
+            background: var(--dark-gray);
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .payment-block h3 {
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1rem;
+        }
+        .payment-methods span {
+            background: #2A2A2A;
+            padding: 8px 16px;
+            border-radius: 40px;
+            color: var(--white);
+        }
+
+        .contact-block {
+            background: var(--dark-gray);
+            border-radius: 32px;
+            padding: 32px;
+            text-align: center;
+        }
+        .contact-block a {
+            color: var(--green);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .contact-block p {
+            margin: 12px 0;
+        }
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 32px;
+            color: #666;
+            border-top: 1px solid #1A1A1A;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .service-card { width: 100%; }
+            .project-card { width: 100%; }
+            .payment-methods span { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Максим - Гевари</div>
+        <ul class="nav-links">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#projects">Портфолио</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>&lt;Максим - Гевари&gt;</h1>
+    <p>Сайты, боты, софт и исправление ошибок.<br>Оплата после готовой работы.</p>
+    <a href="#contacts" class="btn">✉️ Написать мне</a>
+</header>
+
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">⚡ Услуги и цены</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🌐 Сайт-визитка</h3>
+                <div class="price">от 1 500 ₽</div>
+                <p>Адаптивный, современный дизайн, кнопки соцсетей и записи</p>
+            </div>
+            <div class="service-card">
+                <h3>🤖 Telegram Бот</h3>
+                <div class="price">от 700 ₽</div>
+                <p>Автоответы, рассылки, полезные функции под ваш бизнес</p>
+            </div>
+            <div class="service-card">
+                <h3>🚀 Бот + Веб-сайт</h3>
+                <div class="price">от 2 500 ₽</div>
+                <p>Полный комплект: сайт + бот для связи с клиентами</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 Софт на Termux</h3>
+                <div class="price">от 200 ₽</div>
+                <p>Скрипты и инструменты для работы прямо на телефоне</p>
+            </div>
+            <div class="service-card">
+                <h3>🔍 Просмотр кода / фикс ошибок</h3>
+                <div class="price">от 100 ₽</div>
+                <p>Найду и исправлю баги, помогу с правками</p>
+            </div>
+        </div>
+
+        <div class="payment-block">
+            <h3>💸 Способы оплаты</h3>
+            <div class="payment-methods">
+                <span>🇷🇺 Рубли (карта, СБП)</span>
+                <span>₿ Криптовалюта (USDT, BTC)</span>
+                <span>🎮 FunPay</span>
+            </div>
+            <p style="margin-top: 16px; color: #aaa; font-size: 0.9rem;">✅ Комиссия при оплате через FunPay — на мне</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" style="background: #0F0F0F;">
+    <div class="container">
+        <h2 class="section-title">📁 Портфолио (демо-сайты)</h2>
+        <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="container">
+        <h2 class="section-title">💬 Отзывы клиентов</h2>
+        <div class="reviews-grid" id="reviewsContainer"></div>
+    </div>
+</section>
+
+<section id="contacts">
+    <div class="container">
+        <div class="contact-block">
+            <h3>📬 Связаться со мной</h3>
+            <p>📱 Telegram: <a href="https://t.me/sadgewary" target="_blank">@sadgewary</a></p>
+            <p>🐦 VK: <a href="https://vk.ru/id1119113166" target="_blank">https://vk.ru/id1119113166</a></p>
+            <div style="margin-top: 24px;">
+                <a href="https://t.me/sadgewary" class="btn">📩 Написать в Telegram</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© Максим - Гевари | Сайты, боты, софт и код под ключ</p>
+</footer>
+
+<script>
+    // === ПОРТФОЛИО ===
+    const projects = [
+        "https://cute-muffin-c34125.netlify.app/",
+        "https://astonishing-cat-995396.netlify.app/",
+        "https://deluxe-truffle-8ecb32.netlify.app/",
+        "https://sparkly-haupia-6500c5.netlify.app/",
+        "https://dreamy-sundae-420dc8.netlify.app/",
+        "https://dynamic-semolina-0b5d32.netlify.app/"
+    ];
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (projectsGrid) {
+        projects.forEach(link => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <a href="${link}" target="_blank">${link.substring(0, 35)}...</a>
+                <p>🔗 Нажмите, чтобы открыть демо-сайт</p>
+            `;
+            projectsGrid.appendChild(card);
+        });
+    }
+
+    // === ОТЗЫВЫ (15 штук) ===
+    const reviewsData = [
+        { name: "Анна К.", text: "Сделал сайт для моего салона очень быстро. Всё красиво, с телефона открывается идеально. Спасибо!", date: "2026-06-10" },
+        { name: "Максим", text: "Заказал телеграм-бота, сделал за день. Отвечает на вопросы, удобно. Рекомендую.", date: "2026-06-08" },
+        { name: "Екатерина", text: "Поправил ошибки в коде, объяснил как исправить. Недорого и быстро. Обращусь ещё.", date: "2026-06-05" },
+        { name: "Дмитрий", text: "Софт на Termux сделал под ключ. Работает без глюков. Спасибо!", date: "2026-06-03" },
+        { name: "Ольга", text: "Сайт-визитка за 1500₽ — это просто подарок. Всё чётко, без лишнего.", date: "2026-06-01" },
+        { name: "Иван", text: "Заказал бота + сайт. Получил комплексно, очень удобно для бизнеса.", date: "2026-05-28" },
+        { name: "Юлия", text: "Просмотрел мой код на ошибки. Нашёл 3 бага, всё починил. Довольна.", date: "2026-05-25" },
+        { name: "Алексей", text: "Всё супер. Быстро, недорого, на связи всегда.", date: "2026-05-22" },
+        { name: "Мария", text: "Рекомендую! Сайт для салона красоты сделал за 2 дня.", date: "2026-05-20" },
+        { name: "Павел", text: "Термукс скрипт работает как часы. Спасибо!", date: "2026-05-18" },
+        { name: "Наталья", text: "Телеграм бот для магазина — клиенты довольны.", date: "2026-05-15" },
+        { name: "Сергей", text: "Исправил ошибки на сайте, быстро и недорого.", date: "2026-05-12" },
+        { name: "Вера", text: "Сайт сделал с нуля. Всё нравится, обращусь ещё.", date: "2026-05-10" },
+        { name: "Кирилл", text: "Адекватные цены и качественная работа.", date: "2026-05-07" },
+        { name: "Алина", text: "Помог с настройкой бота, всё объяснил. Спасибо!", date: "2026-05-05" }
+    ];
+
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    if (reviewsContainer) {
+        reviewsData.forEach(r => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <div class="review-name">${r.name}</div>
+                <div class="review-text">${r.text}</div>
+                <div class="review-date">📅 ${r.date}</div>
+            `;
+            reviewsContainer.appendChild(reviewDiv);
+        });
+    }
+</script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
